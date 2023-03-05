@@ -5,7 +5,7 @@ export default function Logo(props: any) {
 
     return (
         <div className='flex items-center space-x-2'>
-            <Image className='rounded-full object-cover' height={50} width={50} src='' alt='A C Werx' />
+            <Image className='rounded-full object-cover' height={50} width={50} src='' alt='Sativa Scents' />
             <>{ renderDefault(props) }</>
         </div>
     )
