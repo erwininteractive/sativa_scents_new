@@ -15,11 +15,12 @@ export default async function Products() {
                     {products.results.map(product => (
                        <div key={ product.id } className='group relative'>
                             <div className='min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80'>
+                                { product?.images && (
                                 <img
-                                    src={ product.images[0].file.url } 
+                                    src={ product?.images[0]?.file?.url } 
                                     alt={ product.name }
                                     className='h-full w-full object-cover object-center lg:h-full lg:w-full'
-                                />
+                                /> )}
                             </div>
                             <div className='mt-4 flex justify-between'>
                                 <div>
