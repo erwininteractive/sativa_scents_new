@@ -25,7 +25,7 @@ export default async function Products() {
                                             { product.name }
                                         </a>
                                     </h3>
-                                    <p className='mt-1 text-sm text-white'>Black</p>
+                                    <p className='mt-1 text-sm text-white'>[optional variant text]</p>
                                 </div>
                                 <p className='text-sm font-medium text-slate-500'>${ product.price }</p>
                             </div>
