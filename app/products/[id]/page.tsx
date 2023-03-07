@@ -64,7 +64,7 @@ export default function Item({ params }: { params: { id: string }}) {
                 </section>
                 <section className="w-full p-6 lg:mt-36 lg:pr-20 lg:py-10 2xl:pr-40 2xl:mt-40">
                     <h4 className="font-bold text-orange mb-2 uppercase text-xs tracking-widest">
-                        Sneaker Company
+                        [category will display here]
                     </h4>
                     <h2 className="uppercase mb-4 font-bold text-3xl lg:text-4xl">
                         { product.name }
