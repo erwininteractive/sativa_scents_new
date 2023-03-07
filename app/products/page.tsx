@@ -1,15 +1,10 @@
 import swell from '../../lib/swell'
 
 export default async function Products() {
-    const products = await swell.products.list({
-        expand: ['variants']
-    })
+    const products = await swell.products.list()
 
     return (
         <>
-            { console.log(products) }
-
-            <h1>PRODUCTS</h1>
             <div className='mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
                 <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
                     {products.results.map(product => (
@@ -24,8 +19,8 @@ export default async function Products() {
                             </div>
                             <div className='mt-4 flex justify-between'>
                                 <div>
-                                    <h3 className='text-sm text-sativa-white'>
-                                        <a href='#'>
+                                    <h3 className='text-sm text-sativa-white uppercase'>
+                                        <a href={`/products/${product.id}`}>
                                             <span aria-hidden='true' className='absolute inset-0' />
                                             { product.name }
                                         </a>

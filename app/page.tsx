@@ -20,7 +20,7 @@ export default function HomePage() {
                             Soak in the benefits of CBD and let the stress of the day melt away.
                         </p>
                         <div className='flex justify-center sm:justify-start'>
-                            <Link href='/' className='p-3 px-6 pt-2 text-sativa-white bg-sativa-purple rounded-full baseline hover:text-sativa-blue hover:bg-sativa-white'>
+                            <Link href='/products' className='p-3 px-6 pt-2 text-sativa-white bg-sativa-purple rounded-full baseline hover:text-sativa-blue hover:bg-sativa-white'>
                                 Shop for Products
                             </Link>
                         </div>
@@ -37,10 +37,16 @@ export default function HomePage() {
                             What's difference about Sativa Scents?
                         </h2>
                         <p className='max-w-sm text-center text-sativa-white sm:text-left'>
-                            our product combines the soothing properties of CBD with carefully 
+                            Our product combines the soothing properties of CBD with carefully 
                             selected botanicals and minerals to create a truly restorative experience. 
                             Each soak is designed to relax your body, calm your mind, 
                             and leave you feeling refreshed and rejuvenated.
+                        </p>
+                        <p className='max-w-sm text-center sm:text-left'>
+                            Our unique formula is the only one of its kind to completely dissolve in water, 
+                            ensuring that every last bit of our bath soak delivers the maximum benefits of our 
+                            premium CBD directly to your skin. Whether you're looking to ease sore muscles, relieve stress, 
+                            or just indulge in a little self-care, our CBD infused bath soak is the perfect solution.
                         </p>
                     </div>
                     <div className='flex flex-col space-y-8 sm:w-1/2'>
