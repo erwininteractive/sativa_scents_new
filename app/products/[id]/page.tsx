@@ -28,19 +28,33 @@ export default function Item({ params }: { params: { id: string }}) {
             <main className="w-full flex flex-col lg:flex-row">
                 <section className="h-fit flex-col gap-8 mt-16 sm:flex sm:flex-row sm:gap-4 sm:h-full sm:mt-24 sm:mx-2 md:gap-8 md:mx-4 lg:flex-col lg:mx-0 lg:mt-36">
                     <picture className="relative flex items-center bg-orange sm:bg-transparent">
-                        <button className="bg-white w-10 h-10 flex items-center justify-center pr-1 rounded-full absolute left-6 z-10 sm:hidden" id="previous-mobile">
-                            first button
+                        <button className="bg-sativa-purple w-10 h-10 flex items-center justify-center pr-1 rounded-full absolute left-6 z-10 sm:hidden" id="previous-mobile">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                strokeWidth={1.5} 
+                                stroke="currentColor" 
+                                className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                            </svg>
                         </button>
                         { product?.images && (
                             <img
                                 src={ product.images[0].file?.url }
-                                alt="sneaker"
+                                alt={ product.name }
                                 className="block sm:rounded-xl xl:w-[70%] xl:rounded-xl m-auto pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl"
                                 id="hero"
                             />
                         )}
-                        <button className="bg-white w-10 h-10 flex items-center justify-center pl-1 rounded-full absolute right-6 z-10 sm:hidden" id="next-mobile">
-                            second button
+                        <button className="bg-sativa-purple w-10 h-10 flex items-center justify-center pl-1 rounded-full absolute right-6 z-10 sm:hidden" id="next-mobile">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                fill="none" 
+                                viewBox="0 0 24 24" 
+                                strokeWidth={1.5} 
+                                stroke="currentColor" 
+                                className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
                         </button>
                     </picture>
                     <div className="thumbnails hidden justify-between gap-4 m-auto sm:flex sm:flex-col sm:justify-start sm:items-center sm:h-fit md:gap-5 lg:flex-row">
@@ -63,7 +77,7 @@ export default function Item({ params }: { params: { id: string }}) {
                     </div>
                 </section>
                 <section className="w-full p-6 lg:mt-36 lg:pr-20 lg:py-10 2xl:pr-40 2xl:mt-40">
-                    <h4 className="font-bold text-orange mb-2 uppercase text-xs tracking-widest">
+                    <h4 className="font-bold text-sativa-purple mb-2 uppercase text-xs tracking-widest">
                         [category will display here]
                     </h4>
                     <h2 className="uppercase mb-4 font-bold text-3xl lg:text-4xl">
