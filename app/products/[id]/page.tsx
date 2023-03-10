@@ -1,13 +1,8 @@
 import AddToCart from '../../../components/AddToCart'
 import swell from '../../../lib/swell'
 
-function ProductDescription({ description }: { description: any }) {
-    return <span dangerouslySetInnerHTML={{ __html: description }} />
-}    
-
  export default async function Item({ params }: { params: { id: string }}) {
-    const product = await swell.get('/products', { id: params.id }) as swell.Product
-    console.log(product)
+    const product = await swell.products.get(params.id, {}) as swell.Product
 
     if(!product) {
         return <div>not ready</div>
@@ -69,9 +64,9 @@ function ProductDescription({ description }: { description: any }) {
                 <h2 className="uppercase mb-4 font-bold text-3xl lg:text-4xl">
                     { product.name }
                 </h2>
-                <p className="mb-6 text-base sm:text-lg">
+                <div className="mb-6 text-base sm:text-lg">
                     { product.description }
-                </p>
+                </div>
                 <div className="flex items-center justify-between mb-6 sm:flex-col sm:items-start">
                     <div className="flex items-center gap-4">
                         <h3 className="text-very-dark font-bold text-3xl inline-block">
