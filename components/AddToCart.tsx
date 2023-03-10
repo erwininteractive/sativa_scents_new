@@ -17,7 +17,6 @@ export default function AddToCart({ product }: { product: swell.Product }) {
     }
 
     function add() {
-        
 
     }
 

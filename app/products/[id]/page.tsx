@@ -3,7 +3,8 @@ import parse from 'html-react-parser'
 import swell from '../../../lib/swell'
 
  export default async function Item({ params }: { params: { id: string }}) {
-    const product = await swell.products.get(params.id, {}) as swell.Product
+    {/* const product = await swell.products.get(params.id, {}) as swell.Product */}
+    const product = await swell.get('/products/{id}', { id: params.id }) as swell.Product
 
     if(!product) {
         return <div>not ready</div>

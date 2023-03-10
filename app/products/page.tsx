@@ -1,8 +1,12 @@
 import swell from '../../lib/swell'
 
 export default async function Products() {
-    {/* const products = await swell.products.list() */}
-    const apiResponse = await swell.get('/products', {}) as swell.ResultsResponse<swell.Product>
+    const apiResponse = await swell.get('/products', { 
+        expand: ['variants', 'categories'],
+        where: {
+            active: true
+        }
+    }) as swell.ResultsResponse<swell.Product>
     const products = apiResponse.results
 
     if(!products) {
@@ -24,13 +28,15 @@ export default async function Products() {
                         </div>
                         <div className='mt-4 flex justify-between'>
                             <div>
-                                <h3 className='text-sm text-sativa-white uppercase'>
+                                <h3 className='text-sm text-sativa-white uppercase font-bold'>
                                     <a href={`/products/${product.id}`}>
                                         <span aria-hidden='true' className='absolute inset-0' />
                                         { product.name }
                                     </a>
                                 </h3>
-                                <p className='mt-1 text-sm text-white'>[optional variant text]</p>
+                                { product?.categories && (
+                                <p className='mt-1 text-sm text-white'>{ `${product.categories[0]}` }</p>
+                                )}
                             </div>
                             <p className='text-sm font-medium text-slate-500'>${ product.price }</p>
                         </div>
