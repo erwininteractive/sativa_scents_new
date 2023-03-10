@@ -1,4 +1,5 @@
 import AddToCart from '../../../components/AddToCart'
+import parse from 'html-react-parser'
 import swell from '../../../lib/swell'
 
  export default async function Item({ params }: { params: { id: string }}) {
@@ -65,7 +66,7 @@ import swell from '../../../lib/swell'
                     { product.name }
                 </h2>
                 <div className="mb-6 text-base sm:text-lg">
-                    { product.description }
+                    { parse(`${product.description}`) }
                 </div>
                 <div className="flex items-center justify-between mb-6 sm:flex-col sm:items-start">
                     <div className="flex items-center gap-4">
