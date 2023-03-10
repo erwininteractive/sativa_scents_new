@@ -1,39 +1,14 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+import AddToCart from '../../../components/AddToCart'
 import swell from '../../../lib/swell'
 
-async function getProduct(id: string) {
-    return await swell.products.get(id, {})
-}
+function ProductDescription({ description }: { description: any }) {
+    return <span dangerouslySetInnerHTML={{ __html: description }} />
+}    
 
-export default function Item({ params }: { params: { id: string }}) {
-    const [product, setProduct] = useState<swell.Product>()
-    const [quantity, setQuantity] = useState(1)
+ export default async function Item({ params }: { params: { id: string }}) {
+    const product = await swell.get('/products', { id: params.id }) as swell.Product
+    console.log(product)
 
-    useEffect(() => {
-        getProduct(params.id)
-            .then((product) => { setProduct(product) })
-    }, []) 
-
-    function decrement() {
-        if(quantity !== 0) {
-            setQuantity(quantity - 1)
-        }
-    }
-
-    function increment() {
-        setQuantity(quantity + 1)    
-    }
-
-    async function add(id: any, quantity: number) {
-        await swell.cart.addItem({ product_id: id, quantity: quantity })
-    }
-
-    function ProductDescription({ description }: { description: any }) {
-        return <span dangerouslySetInnerHTML={{ __html: description }} />
-    }    
-    
     if(!product) {
         return <div>not ready</div>
     }
@@ -95,7 +70,7 @@ export default function Item({ params }: { params: { id: string }}) {
                     { product.name }
                 </h2>
                 <p className="mb-6 text-base sm:text-lg">
-                    <ProductDescription description={ product.description } />
+                    { product.description }
                 </p>
                 <div className="flex items-center justify-between mb-6 sm:flex-col sm:items-start">
                     <div className="flex items-center gap-4">
@@ -108,18 +83,8 @@ export default function Item({ params }: { params: { id: string }}) {
                         $250.00
                     </p>
                 </div>
-                <div className="flex flex-col gap-5 mb-16 sm:flex-row lg:mb-0">
-                    <div className="w-full h-10 text-sm bg-light py-2 flex items-center justify-between rounded-lg font-bold relatives sm:w-80">
-                        <button className='w-8 bg-sativa-purple' onClick={ decrement }>-</button>
-                        <span className=''>{ quantity }</span>
-                        <button className='w-8 bg-sativa-purple' onClick={ increment }>+</button>
-                    </div>
-                    <button className="w-full h-10 bg-orange py-2 flex items-center justify-center gap-4 text-xs rounded-lg font-bold text-light shadow-md shadow-orange hover:brightness-125 transition select-none">
-                       [cart]
-                       Add to cart
-                    </button>
-                </div>
-            </div>
+                <AddToCart product={ product } />
+           </div>
         </section>
     )
 }

@@ -9,36 +9,37 @@ import { BuildingStorefrontIcon } from '@heroicons/react/24/outline'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 import { Bars3Icon } from '@heroicons/react/24/outline'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
     const [active, setActive] = useState<boolean>()
-    const [activeIdx, setActiveIdx] = useState(-1)
+    const path = usePathname()
 
     return(
-        <header className='w-full flex justify-between'>        
-            <Link href='/' className='block pl-5'><Image src={ logo } alt='Sativa Scents' /></Link>
+        <header className='w-full flex justify-between'>
+            <Link href='/' className='block pl-5'><Image src={ logo } alt='Sativa Scents' priority /></Link>
             <nav className='hidden pt-[28px] pr-5 sm:block'>
                 <ul className='flex items-center'>
                     <li className='pr-6'>
-                        <Link href='/products' className='relative inline-flex items-center hover:text-sativa-green'>
+                        <Link href='products' className={`relative inline-flex items-center hover:text-sativa-green ${path === '/products' ? 'text-sativa-green' : ''}`}>
                             <BuildingStorefrontIcon className='h-8 w-8 pr-2' />
                             Shop
                         </Link>
-                    </li>                    
+                    </li> 
                     <li className='pr-6'>
-                        <Link href='/cart' className='relative inline-flex items-center hover:text-sativa-green'>
+                        <Link href='cart' className={`relative inline-flex items-center hover:text-sativa-green ${path === '/cart' ? 'text-sativa-green' : ''}`}>
                            <ShoppingCartIcon className='h-8 w-8 pr-2' />
                            Cart
                         </Link>
-                    </li>         
+                    </li> 
                     <li className='pr-6'>
-                        <Link href='/login' className='relative inline-flex items-center hover:text-sativa-green'>
+                        <Link href='login' className='relative inline-flex items-center hover:text-sativa-green'>
                             <ArrowRightOnRectangleIcon className='h-8 w-8 pr-2' />
                             Login
                         </Link>
                     </li>
                     <li>
-                        <Link href='/register' className='relative inline-flex items-center bg-sativa-purple text-sativa-white ml-5 py-3 px-3 rounded-full transition-colors hover:bg-sativa-white hover:text-sativa-blue'>
+                        <Link href='register' className='relative inline-flex items-center bg-sativa-purple text-sativa-white ml-5 py-3 px-3 rounded-full transition-colors hover:bg-sativa-white hover:text-sativa-blue'>
                             Register
                         </Link>
                     </li>
